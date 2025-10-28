@@ -1,0 +1,6 @@
+apiVersion: v2
+name: jp2c-about
+description: A Helm chart for deploying the jp2c-about project
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

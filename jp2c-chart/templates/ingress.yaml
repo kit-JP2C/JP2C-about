@@ -1,0 +1,27 @@
+{{- if .Values.jp2cIngress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jp2c-about-ingress
+  namespace: {{ .Values.jp2cIngress.namespace }}
+  labels:
+    app: jp2c
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: Helm
+spec:
+  ingressClassName: {{ .Values.jp2cIngress.className }}
+  tls:
+    - secretName: {{ .Values.jp2cIngress.tlsSecret }}
+  rules:
+    - host: {{ .Values.jp2cIngress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.jp2cIngress.service.name }}
+                port:
+                  number: {{ .Values.jp2cIngress.service.port }}
+{{- end }}

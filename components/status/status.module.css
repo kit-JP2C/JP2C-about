@@ -1,0 +1,22 @@
+.bar {
+  margin-top: 50px;
+  display: flex;
+  width: 100%;
+}
+
+.bar > * {
+  flex: 1;
+  text-align: center;
+  width: 100%;
+}
+
+.amounts {
+  display: grid;
+  gap: 30px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.amounts > :last-child {
+  font-size: 40px;
+}

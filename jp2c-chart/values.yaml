@@ -1,0 +1,32 @@
+replicaCount: 3
+
+image:
+  pullPolicy: IfNotPresent
+  repository:
+  tag:
+
+service:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 4000
+      targetPort: 4000
+      nodePort: 31000
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 512Mi
+  limits:
+    cpu: 500m
+    memory: 1Gi
+
+jp2cIngress:
+  enabled: true
+  namespace: default
+  className: traefik
+  tlsSecret: jp2c-tls
+  host: jp2c.org
+  service:
+    name: jp2c-about-service
+    port: 4000
