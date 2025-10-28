@@ -26,7 +26,7 @@ jp2cIngress:
   namespace: default
   className: traefik
   tlsSecret: jp2c-tls
-  host: jp2c.org
+  host: about.jp2c.org
   service:
     name: jp2c-about-service
     port: 4000
