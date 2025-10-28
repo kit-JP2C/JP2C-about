@@ -38,7 +38,7 @@ jobs:
         run: |
           VERSION=$(echo "$GIT_TAG" | sed 's/^v//')
           echo "Using version tag: $VERSION"
-          docker buildx build -t $ECR_REGISTRY/$ECR_REPOSITORY:$VERSION --platform linux/amd64,linux/arm64 --push .
+          docker buildx build --build-arg NEXT_PUBLIC_API_URL=https://api.jp2c.org -t $ECR_REGISTRY/$ECR_REPOSITORY:$VERSION --platform linux/amd64,linux/arm64 --push .
 
       # 🔑 Kubeconfig 세팅
       - name: Set up Kubeconfig
