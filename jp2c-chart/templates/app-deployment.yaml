@@ -24,7 +24,7 @@ spec:
             - containerPort: 4000
           env:
             - name: NEXT_PUBLIC_API_URL
-              value: http://jp2c-service:8080
+              value: https://api.jp2c.org
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
