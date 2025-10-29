@@ -17,6 +17,6 @@
   font-weight: 900;
 }
 
-.amounts > :last-child {
+.amounts > :last-child:not(.error) {
   font-size: 40px;
 }
