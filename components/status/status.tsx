@@ -6,7 +6,6 @@ import { apiFetch } from "@/lib/fetcher";
 
 interface ICurrentSocketStatus {
   clients: number;
-  rooms: number;
 }
 
 export default function Status() {
@@ -36,10 +35,6 @@ export default function Status() {
       <div className={styles.amounts}>
         <p>현재 접속자 수</p>
         <p>{socketStatus?.clients}</p>
-      </div>
-      <div className={styles.amounts}>
-        <p>현재 활성화 된 방</p>
-        <p>{socketStatus?.rooms}</p>
       </div>
     </div>
   );
