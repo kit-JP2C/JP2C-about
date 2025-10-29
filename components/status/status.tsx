@@ -3,6 +3,7 @@
 import { Activity, useEffect, useState } from "react";
 import styles from "./status.module.css";
 import classNames from "classnames";
+import { apiFetch } from "@/lib/fetcher";
 
 export interface ICurrentSocketStatus {
   clients: number;
@@ -19,9 +20,8 @@ export default function Status() {
     // 데이터를 가져오는 함수
     const fetchData = async () => {
       try {
-        const res = await fetch("/api/socket-status");
-        const json = await res.json();
-        setSocketStatus(json);
+        const data = await apiFetch<ICurrentSocketStatus>("/api/socket-status");
+        setSocketStatus(data);
         setIsLoading(false);
         setIsError(false);
       } catch (e) {
