@@ -16,5 +16,5 @@ export async function apiFetch<T>(path: string, options?: RequestInit) {
   if (!res.ok) {
     throw new Error(`API 요청 실패: ${res.status}`);
   }
-  return res.json() as Promise<ICommonResponse<T>>;
+  return res.json() as Promise<T>;
 }

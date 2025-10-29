@@ -17,8 +17,8 @@ export default function Status() {
     // 데이터를 가져오는 함수
     const fetchData = async () => {
       try {
-        const json = await apiFetch<ICurrentSocketStatus>("/v1/socket-status");
-        setSocketStatus(json.data);
+        const data = await apiFetch<ICurrentSocketStatus>("/v1/socket-status");
+        setSocketStatus(data);
       } catch (e) {
         console.error("데이터 가져오기 실패:", e);
       }
