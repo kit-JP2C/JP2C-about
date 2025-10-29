@@ -1,6 +1,4 @@
-import ICommonResponse from "@/interface/commonResponse";
-
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080";
+import { BASE_URL } from "@/common/server";
 
 export async function apiFetch<T>(path: string, options?: RequestInit) {
   const url = `${BASE_URL}${path}`;
